@@ -1,7 +1,7 @@
 /* --- Global Styles & Resets --- */
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  color: #2c3e50;
+  color: #1a1a1a;
   margin: 0;
   padding: 20px;
 }
@@ -169,10 +169,11 @@ h2::after {
 }
 
 .controls-panel button:disabled {
-  background: linear-gradient(135deg, #cccccc 0%, #999999 100%);
+  background: linear-gradient(135deg, #b0b0b0 0%, #888888 100%);
+  color: #ffffff;
   cursor: not-allowed;
   box-shadow: none;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 .input-group {
@@ -182,7 +183,7 @@ h2::after {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
-  color: #555;
+  color: #333;
   font-size: 0.95em;
 }
 .input-group input {
@@ -232,7 +233,7 @@ h2::after {
 
 .array-index {
   font-size: 0.85em;
-  color: #888;
+  color: #555;
   margin-bottom: 5px;
   font-weight: 600;
 }
@@ -249,6 +250,7 @@ h2::after {
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
   font-size: 1.1em;
+  color: #1a1a1a;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -341,7 +343,7 @@ h2::after {
   border-radius: 12px;
   font-size: 1.2em;
   font-weight: bold;
-  color: #2c3e50;
+  color: #1a1a1a;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   animation: slideInUp 0.5s ease-out;
 }
@@ -392,7 +394,7 @@ h2::after {
 .register-panel td:first-child { 
   font-family: inherit;
   font-weight: 600;
-  color: #555;
+  color: #333;
 }
 
 .register-panel td:last-child {
@@ -409,7 +411,7 @@ h2::after {
   height: 300px;
   overflow-y: auto;
   background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-  color: #e8f4f8;
+  color: #f0f8ff;
   padding: 20px;
   border-radius: 10px;
   font-family: 'Courier New', Courier, monospace;

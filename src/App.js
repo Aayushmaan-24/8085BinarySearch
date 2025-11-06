@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 // --- Constants & Initial State ---
@@ -26,19 +26,13 @@ const hex = (num, padding = 2) => `0x${num.toString(16).toUpperCase().padStart(p
 
 // --- Child Components for Better Structure ---
 
-// Component for the auto-scrolling log
+// Component for the log (no auto-scroll)
 const LogPanel = ({ log }) => {
-  const logEndRef = useRef(null);
-  useEffect(() => {
-    logEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [log]);
-
   return (
     <div className="log-panel">
       <h2>Execution Log</h2>
       <div className="log-content">
         {log.map((msg, i) => <p key={i}>{msg}</p>)}
-        <div ref={logEndRef} />
       </div>
     </div>
   );
