@@ -1,70 +1,151 @@
-# Getting Started with Create React App
+# 8085 Binary Search Simulator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An interactive web-based simulator for visualizing and understanding binary search algorithm implementation on the Intel 8085 microprocessor.
+
+## Overview
+
+This simulator provides a step-by-step visualization of binary search algorithm execution, simulating the behavior of an Intel 8085 microprocessor. It demonstrates how binary search is implemented using 8085 assembly instructions, with real-time register updates and memory access visualization.
+
+## Features
+
+- **Interactive Step-by-Step Execution**: Execute binary search operations one step at a time
+- **Visual Array Representation**: See the search array with highlighted indices (low, high, mid) and found elements
+- **Register Monitoring**: Track all 8085 registers (A, B, C, D, E, HL) in real-time
+- **Execution Log**: Detailed log of each instruction and operation performed
+- **Customizable Search Key**: Enter any hexadecimal or decimal value to search
+- **Visual Feedback**: Color-coded cells indicate current middle element, found element, and pointer positions
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (version 14 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd my-8085-simulator
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm start
+```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Usage
+
+### Running the Simulator
+
+1. **Enter Search Key**: In the Controls panel, enter a value to search (supports both hex format like `0x66` or decimal format like `102`)
+
+2. **Initialize**: Click "Initialize / Setup" to set up the simulation with the initial register values:
+   - **HL**: Base address of the array (0x3000)
+   - **E**: The search key
+   - **B**: Low index (initially 0)
+   - **C**: High index (initially array length - 1)
+
+3. **Execute Steps**: Click "Next Step" repeatedly to execute each iteration of the binary search algorithm
+
+4. **Monitor Progress**: 
+   - Watch the array visualization for highlighted elements
+   - Check the register panel for current register values
+   - Read the execution log for detailed instruction traces
+
+5. **View Results**: Once finished, the result will be displayed showing whether the key was found and at which index
+
+6. **Reset**: Click "Reset" to start over with a fresh simulation
+
+### Understanding the Visualization
+
+- **Array Cells**: Display values in hexadecimal format
+- **Yellow Highlight**: Indicates the current middle element being compared
+- **Green Highlight**: Indicates the found element
+- **Low Pointer** (blue): Shows the current low boundary
+- **High Pointer** (red): Shows the current high boundary
+
+## Algorithm Details
+
+The simulator implements binary search on a sorted array:
+
+1. Initialize low = 0, high = array.length - 1
+2. While low <= high:
+   - Calculate mid = (low + high) / 2
+   - Compare array[mid] with the search key
+   - If equal: element found, return index
+   - If array[mid] < key: search upper half (low = mid + 1)
+   - If array[mid] > key: search lower half (high = mid - 1)
+3. If low > high: key not found
+
+## Default Array
+
+The simulator uses the following sorted array:
+```
+[0x10, 0x20, 0x35, 0x42, 0x58, 0x66, 0x73, 0x89, 0x91, 0xA4]
+```
+
+## 8085 Registers Used
+
+- **A (Accumulator)**: Stores the current array element being compared
+- **B**: Stores the low index
+- **C**: Stores the high index
+- **D**: Stores the mid index
+- **E**: Stores the search key
+- **HL**: Memory pointer to the current array element
+
+## Project Structure
+
+```
+my-8085-simulator/
+├── public/
+│   └── index.html
+├── src/
+│   ├── App.js          # Main application component
+│   ├── App.css         # Main stylesheet
+│   ├── index.js        # Application entry point
+│   └── index.css       # Global styles
+├── package.json
+└── README.md
+```
 
 ## Available Scripts
 
-In the project directory, you can run:
-
 ### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Runs the app in development mode at [http://localhost:3000](http://localhost:3000)
 
 ### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in interactive watch mode
 
 ### `npm run build`
+Builds the app for production to the `build` folder
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technologies Used
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **React**: Frontend framework
+- **CSS3**: Styling and animations
+- **JavaScript**: Logic implementation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Educational Purpose
 
-### `npm run eject`
+This simulator is designed for educational purposes to help students and enthusiasts understand:
+- Binary search algorithm
+- Intel 8085 microprocessor architecture
+- Assembly language programming concepts
+- Memory addressing and register operations
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## License
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This project is open source and available for educational use.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Contributing
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Contributions, issues, and feature requests are welcome!
